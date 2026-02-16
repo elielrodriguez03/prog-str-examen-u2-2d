@@ -2,19 +2,25 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         double subtotal = 0.0;
 
         while (true) {
+
             System.out.print("Precio (0 para terminar): ");
 
             if (!sc.hasNextDouble()) {
                 System.out.println("Entrada inválida");
                 return;
             }
+
             double p = sc.nextDouble();
 
-             //Si p es 0 entonces break
+            // Si p es 0 entonces termina captura
+            if (p == 0) {
+                break;
+            }
 
             if (!U2Service.esPrecioValido(p)) {
                 System.out.println("Precio inválido");
@@ -30,9 +36,11 @@ public class Main {
             System.out.println("Entrada inválida");
             return;
         }
+
         int metodo = sc.nextInt();
 
-        if () { //Validacion de metodo de pago de 1 o 2
+        // Validación método 1 o 2
+        if (metodo != 1 && metodo != 2) {
             System.out.println("Método inválido");
             return;
         }
@@ -41,8 +49,8 @@ public class Main {
         double total = U2Service.calcularTotal(subtotal, descuento);
 
         System.out.println("=== TICKET ===");
-        System.out.println("Subtotal: "+subtotal);
-        System.out.println("Descuento: "+ descuento);
-        System.out.println("Total: "+ total);
+        System.out.printf("Subtotal: %.2f\n", subtotal);
+        System.out.printf("Descuento: %.2f\n", descuento);
+        System.out.printf("Total: %.2f\n", total);
     }
 }

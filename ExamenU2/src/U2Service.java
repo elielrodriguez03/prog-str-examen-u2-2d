@@ -1,22 +1,31 @@
 public class U2Service {
 
+    // válido si p > 0
     public static boolean esPrecioValido(double p) {
-        // válido si p > 0
-        return false; // TODO
+        return p > 0;
     }
 
     public static double calcularSubtotal(double subtotalActual, double precio) {
-        return 0.0; // TODO
+        return subtotalActual + precio;
     }
 
     public static double calcularDescuento(double subtotal, int metodoPago) {
-        // >=500 y efectivo (1): 8%
-        // >=500 y tarjeta (2): 5%
-        // <500: 0
-        return 0.0; // TODO
+
+        if (subtotal >= 500) {
+
+            if (metodoPago == 1) { // efectivo
+                return subtotal * 0.08;
+            }
+
+            if (metodoPago == 2) { // tarjeta
+                return subtotal * 0.05;
+            }
+        }
+
+        return 0.0;
     }
 
     public static double calcularTotal(double subtotal, double descuento) {
-        return 0.0; // TODO
+        return subtotal - descuento;
     }
 }
