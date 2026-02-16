@@ -42,10 +42,12 @@ public class Main {
 
         double descuento = U2Service.calcularDescuento(subtotal, metodo);
         double total = U2Service.calcularTotal(subtotal, descuento);
+        double total_dos_decimales = U2Service.solo_dos_decimales(total);
+
 
         System.out.println("=== TICKET ===");
         System.out.println("Subtotal: "+subtotal);
         System.out.println("Descuento: "+ descuento);
-        System.out.println("Total: "+ total);
+        System.out.println("Total: "+ total_dos_decimales);
     }
 }

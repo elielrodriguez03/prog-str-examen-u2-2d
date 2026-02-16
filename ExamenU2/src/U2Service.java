@@ -15,6 +15,7 @@ public class U2Service {
         return subtotalActual; // TODO
     }
 
+
     public static double calcularDescuento(double subtotal, int metodoPago) {
         if(subtotal<500){
             return 0;
@@ -31,5 +32,19 @@ public class U2Service {
     public static double calcularTotal(double subtotal, double descuento) {
 
         return subtotal-descuento; // TODO
+    }
+
+    public static double solo_dos_decimales(double total){
+        //perdone el chorizote que hice aqui, no recordaba el metodo para redondear asi que
+        //se me ocurrio esto jajaj
+
+        int tot_sin_decimal = (int) total;
+        double solo_decimales = total - tot_sin_decimal;
+        solo_decimales = solo_decimales*100;
+        int dos_digitos = (int)solo_decimales;
+        double dos_decimales = (double)dos_digitos/100;
+        double total_final = (double)tot_sin_decimal+dos_decimales;
+        return total_final;
+
     }
 }
