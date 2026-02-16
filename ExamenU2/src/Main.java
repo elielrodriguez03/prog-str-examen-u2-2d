@@ -15,7 +15,7 @@ public class Main {
             double p = sc.nextDouble();
 
              //Si p es 0 entonces break
-
+            if (p==0){break;}
             if (!U2Service.esPrecioValido(p)) {
                 System.out.println("Precio inválido");
                 continue;
@@ -32,7 +32,7 @@ public class Main {
         }
         int metodo = sc.nextInt();
 
-        if () { //Validacion de metodo de pago de 1 o 2
+        if (!U2Service.validarMetodoPago(metodo)){ //Validacion de metodo de pago de 1 o 2
             System.out.println("Método inválido");
             return;
         }
