@@ -7,15 +7,18 @@ public class Main {
 
         while (true) {
             System.out.print("Precio (0 para terminar): ");
+            double p = 0;
 
             if (!sc.hasNextDouble()) {
                 System.out.println("Entrada inválida");
                 return;
             }
-            double p = sc.nextDouble();
+            p = sc.nextDouble();
 
-             //Si p es 0 entonces break
-
+            //Si p es 0 entonces break
+            if (p == 0) {
+                break;
+            }
             if (!U2Service.esPrecioValido(p)) {
                 System.out.println("Precio inválido");
                 continue;
@@ -32,7 +35,8 @@ public class Main {
         }
         int metodo = sc.nextInt();
 
-        if () { //Validacion de metodo de pago de 1 o 2
+
+        if (metodo>=3) { //Validacion de metodo de pago de 1 o 2
             System.out.println("Método inválido");
             return;
         }
