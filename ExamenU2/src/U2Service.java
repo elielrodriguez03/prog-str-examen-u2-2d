@@ -28,6 +28,6 @@ public class U2Service {
         return subtotal-descuento; // TODO
     }
     public static boolean validarMetodoPago(int metodo){
-        return (metodo==1);
+        return (metodo==1 || metodo==2);
     }
 }
