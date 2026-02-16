@@ -6,15 +6,16 @@ public class Main {
         double subtotal = 0.0;
 
         while (true) {
-            System.out.print("Precio (0 para terminar): ");
+            System.out.print("Ingresa el Precio uno por uno (0 para terminar): ");
 
             if (!sc.hasNextDouble()) {
                 System.out.println("Entrada inválida");
                 return;
             }
+
             double p = sc.nextDouble();
 
-             //Si p es 0 entonces break
+            if (p == 0) break;
 
             if (!U2Service.esPrecioValido(p)) {
                 System.out.println("Precio inválido");
@@ -24,25 +25,25 @@ public class Main {
             subtotal = U2Service.calcularSubtotal(subtotal, p);
         }
 
-        System.out.println("Método de pago: 1) Efectivo  2) Tarjeta");
+        System.out.println("Ingresa tu método de pago: 1) Efectivo  2) Tarjeta");
 
         if (!sc.hasNextInt()) {
             System.out.println("Entrada inválida");
             return;
         }
+
         int metodo = sc.nextInt();
 
-        if () { //Validacion de metodo de pago de 1 o 2
+        if (metodo < 1 || metodo > 2) {
             System.out.println("Método inválido");
             return;
         }
 
         double descuento = U2Service.calcularDescuento(subtotal, metodo);
         double total = U2Service.calcularTotal(subtotal, descuento);
-
-        System.out.println("=== TICKET ===");
-        System.out.println("Subtotal: "+subtotal);
-        System.out.println("Descuento: "+ descuento);
-        System.out.println("Total: "+ total);
+        System.out.println("\nTICKET");
+        System.out.printf("Subtotal: %.2f\n", subtotal);
+        System.out.printf("Descuento: %.2f\n", descuento);
+        System.out.printf("Total: %.2f\n", total);
     }
 }
